@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="css/signin.css">
+  <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-auth-compat.js"></script>
+
   <title>SignIn</title>
 </head>
 <body>
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="index2.html" >
+                <!-- <form action="" > -->
                     <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
@@ -24,104 +28,15 @@
                         <label for=""><input type="checkbox">Remember Me  <a href="#">Forget Password</a></label>
                       
                     </div>
-                    <button >Log in</button>
-                    <button type="button" id="login"> Log In with google</button>
+                    <button id="submit-btn" onclick="signIn()">Log in</button>
+                    <button type="button" id="login" onclick="signIn()"> Log In with google</button>
                     <div class="register">
                         <p>Don't have a account <a href="register.html">Register</a></p>
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
         </div>
     </section>
-    <!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
-
-
-<script type="module">
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-import { getAuth , GoogleAuthProvider,signInWithPopup , signInWithRedirect , getRedirectResult} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-apiKey: "AIzaSyB_hNw-rcfbPgYvhZ1tjN30kRabsuQZsxw",
-authDomain: "librarymanagement-eecfc.firebaseapp.com",
-projectId: "librarymanagement-eecfc",
-storageBucket: "librarymanagement-eecfc.appspot.com",
-messagingSenderId: "369503247134",
-appId: "1:369503247134:web:899aa5c40c5195ab12c70f"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider(app);
-
-
-login.addEventListener('click',(e) => {
-    // e.preventDefault();
-
-    signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    console.log(result);
-    alert(result.user);
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-    if(result.user.email){
-        // sendRequest(url,result.user.email,callBack);
-        sendRequest("generate_otp.php",result.user.email,"getResponse");
-        // window.location = "/verify.html";
-    }
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-   
-    // signInWithRedirect(auth, provider);
-    // getRedirectResult(auth).then((result) => {
-    //     console.log(result);
-    // // This gives you a Google Access Token. You can use it to access Google APIs.
-    // const credential = GoogleAuthProvider.credentialFromResult(result);
-    // const token = credential.accessToken;
-
-    // // The signed-in user info.
-    // const user = result.user;
-    // // IdP data available using getAdditionalUserInfo(result)
-    // // ...
-    // }).catch((error) => {
-    //     console.log(error);
-    // // Handle Errors here.
-    // const errorCode = error.code;
-    // const errorMessage = error.message;
-    // // The email of the user's account used.
-    // const email = error.customData.email;
-    // // The AuthCredential type that was used.
-    // const credential = GoogleAuthProvider.credentialFromError(error);
-    // // ...
-    // });
-});
-
-function getResponse(response){
-    if(response.status == "success" || response.resCode == '200'){
-        window.location = "/verify.html";
-    }else{
-        alert(response.reason);
-    }
-}
-</script>
+    <script src="main.js"></script>
 </body>
 </html>
