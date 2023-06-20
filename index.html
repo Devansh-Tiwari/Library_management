@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style2.css">
         <link rel="stylesheet" href="css/style.css">
-
+        <link rel="stylesheet" href="search.css">
         
 
     </head>
@@ -36,10 +36,17 @@
                 <div class="bx bx-menu" id="menu-icon"></div>
             </div>
        
-
+            
         </header>
 
         <div class="container">
+
+            <div class="search">
+                    <h1>Search Here</h1>
+                    <input type="text" id="searchInput" placeholder="Search..."> <br>
+                    <button id="searchButton">Search</button>
+                <ul id="searchResults"></ul>
+            </div>
 
             <h1 class="heading">Popular Books</h1>
         
@@ -283,7 +290,7 @@
 
         <!-- js link -->
         <script src="script/script.js"></script>
-      
+      <script src="search.js"></script>
         
     </body>
 
