@@ -197,6 +197,17 @@ header{
     .navbar li{
         padding: 8px 0;
     }
+
+    .container .wrapper{
+        padding: 50px;
+      }
+        
 }
 
+@media(max-width : 768px){
+    .container .wrapper{
+        padding: 50px;
+      }
+        
+}
 
