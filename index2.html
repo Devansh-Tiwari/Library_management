@@ -12,6 +12,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <link rel="stylesheet" href="css/style2.css">
         <link rel="stylesheet" href="css/style.css">
 
@@ -30,15 +32,27 @@
                 <li><a href="#">Contact Us</a></li>
             </ul>
             
-            <div class="main">
+            <!-- <div class="main">
                 <div class="Cart">CART</div>
                 <div class="bx bx-menu" id="menu-icon"></div>
-            </div>
+            </div> -->
        
 
         </header>
 
         <div class="container">
+            <div class="wrapper">
+                <div class="search-input">
+                  <a href="" target="_blank" hidden></a>
+                  <input type="text" placeholder="Type to search..">
+                  <div class="autocom-box">
+                    <!-- here list are inserted from javascript -->
+                  </div>
+                  <div class="icon"><i class="fas fa-search"></i></div>
+                </div>
+              </div>
+              <script src="script/searchscript.js"></script>
+            <script src="script/suggestions.js"></script>
 
             <h1 class="heading">Popular Books</h1>
         
